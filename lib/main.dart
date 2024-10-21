@@ -1,4 +1,4 @@
-import 'package:first_project/mjds_view.dart';
+import 'package:first_project/home_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,13 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
-        useMaterial3: true,
-      ),
-      home: const MjdView(),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeView(),
     );
   }
 }
