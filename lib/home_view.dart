@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:first_project/details_view.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -79,11 +82,48 @@ class _HomeState extends State<HomeView> {
                     ),
                   ),
                 ),
+                const SizedBox(
+                  height: 5,
+                ),
+                InkWell(
+                  onTap: () => showCustomDialog(),
+                  child: const Text(
+                    "About the app",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 79, 155, 163),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  void showCustomDialog() {
+    if (Platform.isAndroid) {
+      showAboutDialog(
+        context: context,
+      );
+    } else if (Platform.isIOS) {
+      showCupertinoModalPopup(
+        context: context,
+        builder: (context) {
+          return const CupertinoAlertDialog(
+            content: Text(
+              "This a Flutter lab!",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          );
+        },
+      );
+    }
   }
 }
