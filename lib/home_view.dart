@@ -1,5 +1,5 @@
+import 'package:first_project/details_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -8,9 +8,12 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeState extends State<HomeView> {
+  String data =
+      "Hi I'm a Flutter developer, Flutter is a Framework,  Flutter developed by Google And it use a Dart programming language.";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.grey.shade900,
         leadingWidth: 40,
@@ -41,18 +44,41 @@ class _HomeState extends State<HomeView> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   "Hi, Happy to see you agin, click to explore the developer profile",
                   style: TextStyle(
-                    color: Colors.blueAccent,
+                    color: Colors.grey.shade900,
                     fontSize: 25,
                   ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(
-                    onPressed: () {}, child: const Text("Developer info"))
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      DetailsView.routeName,
+                      // Passing an argument from this page
+                      arguments: data,
+                    );
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 15, vertical: 10),
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 98, 188, 198),
+                    ),
+                    child: const Text(
+                      "Developer info",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
