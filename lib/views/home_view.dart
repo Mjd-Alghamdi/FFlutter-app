@@ -1,6 +1,5 @@
-import 'dart:io';
-
-import 'package:first_project/details_view.dart';
+import 'package:first_project/functions.dart';
+import 'package:first_project/views/details_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -86,7 +85,7 @@ class _HomeState extends State<HomeView> {
                   height: 5,
                 ),
                 InkWell(
-                  onTap: () => showCustomDialog(),
+                  onTap: () => showCustomDialog(context: context),
                   child: const Text(
                     "About the app",
                     style: TextStyle(
@@ -102,42 +101,5 @@ class _HomeState extends State<HomeView> {
         ),
       ),
     );
-  }
-
-  void showCustomDialog() {
-    if (Platform.isAndroid) {
-      showAboutDialog(
-        context: context,
-      );
-    } else if (Platform.isIOS) {
-      showCupertinoModalPopup(
-        context: context,
-        builder: (context) {
-          return CupertinoAlertDialog(
-            content: const Text(
-              "This a Flutter lab!",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            actions: [
-              CupertinoDialogAction(
-                isDefaultAction: true,
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text(
-                  'Ok',
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-            ],
-          );
-        },
-      );
-    }
   }
 }

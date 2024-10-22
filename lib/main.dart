@@ -1,5 +1,5 @@
-import 'package:first_project/details_view.dart';
-import 'package:first_project/home_view.dart';
+import 'package:first_project/views/details_view.dart';
+import 'package:first_project/views/home_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
